@@ -1,30 +1,32 @@
-﻿//Projeto de cálculo e formatação simples: 
+﻿using System.Collections;
 
-//5 notas da Sophia
-int[] notasSophia = new int[] {93, 87, 98, 95, 100};
-int somaSophia = notasSophia[0] + notasSophia[1] + notasSophia[2] + notasSophia[3] + notasSophia[4];
-decimal mediaSophia = somaSophia / 5m;
+Random dado = new Random();
 
-//5 notas do nicolas
-int[] notasNicolas = new int[] {80, 83, 82, 88, 85};
-int somaNicolas = notasNicolas[0] + notasNicolas[1] + notasNicolas[2] + notasNicolas[3] + notasNicolas[4];
-decimal mediaNicolas = somaNicolas / 5m;
+int rodada1 = dado.Next(1, 10);
+int rodada2 = dado.Next(1, 10);
+int rodada3 = dado.Next(1, 10);
 
+int totalRodadas = rodada1 + rodada2 + rodada3;
 
-// 5 notas da Zariah
-int[] notasZariah = new int[] {84, 96, 73, 85, 79};
-int somaZariah = notasZariah[0] + notasZariah[1]  + notasZariah[2] + notasZariah[3] + notasZariah[4];
-decimal mediaZariah = somaZariah /5m;
+if ((rodada1 == rodada2 ) || (rodada2 == rodada3) || (rodada1 == rodada3));
+{
+    Console.WriteLine("Voce ganhou um bonûs de 2 pontos");
+    totalRodadas += 2;
+}
 
-//5 notas do Jeong
-int[] notasJeong = new int[] {90, 92, 98, 100, 97};
-int somaJeong = notasJeong[0] + notasJeong[1] + notasJeong[2] + notasJeong[3] + notasJeong[4];
-decimal mediaJeong = somaJeong / 5m;
-
-Console.WriteLine("Notas dos Alunos:\n");
-Console.WriteLine(@"Sophia: 93, 87, 98, 95, 100
-Nicolas: 80, 83, 82, 88, 85
-Zahirah:   84, 96, 73, 85, 79
-Jeong:  90, 92, 98, 100, 97");
-
-Console.WriteLine($"\nEstudante:\tMédia \n Sophia\t\t{mediaSophia} \n Nicolas\t{mediaNicolas} \n Zahirah\t{mediaZariah} \n Jeong\t\t{mediaJeong}");
+if (totalRodadas == 15)
+{
+    Console.WriteLine($"Você ganhou uma viagem! - Você fez {totalRodadas} pontos ");
+}
+else if (totalRodadas == 20)
+{
+    Console.WriteLine($"Você ganhou 1.000.000 de reais!!! - Você fez {totalRodadas} pontos");
+}
+else if (totalRodadas == 12)
+{
+    Console.WriteLine($"Você ganhou um cachorro!!!! - Você fez {totalRodadas} pontos");
+}
+else
+{
+    Console.WriteLine($"Você não ganhou nada! - Você fez {totalRodadas} pontos ");
+}
